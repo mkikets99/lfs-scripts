@@ -135,7 +135,6 @@ mkdir -p $ISODIR/boot/efiboot
 mount -o loop $ISODIR/boot/efiboot.img $ISODIR/boot/efiboot || die "Failed mount efiboot.img"
 mkdir -p $ISODIR/boot/efiboot/EFI/boot
 cp $ISODIR/EFI/boot/bootx64.efi $ISODIR/boot/efiboot/EFI/boot
-#cp $FILEDIR/BOOTx64.EFI $ISODIR/boot/efiboot/EFI/boot
 umount $ISODIR/boot/efiboot
 rm -fr $ISODIR/boot/efiboot
 
