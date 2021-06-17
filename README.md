@@ -1,15 +1,39 @@
-# lfs-scripts
+# lfs-scripts [Fedora Based Distros]
+
+### !!! Please Remember: This is a Fork of Original Project from [@emmett1/lfs-script](https://github.com/emmett1/lfs-script)
+This is created to be sure that this project will run on Fedora as host
+##
 
 This repo contain scripts to automate multilib LFS build + livecd. This LFS build is using [CRUX](https://crux.nu)'s pkgutils for managing packages and initramfs generator from [Venom Linux](https://venomlinux.org) for livecd initramfs.
 
-### Requirements
+## Requirements
+### Basic Requirements
 
 * `sudo` / `doas`
 * `wget`
 * passes lfs `version-check.sh` test
 * `squashfs-tools` & `libisoburn` (optional to create the livecd iso)
 
-### Scripts
+### Fedora Requirements
+#### Packages
+Just use this command with all packages you need to install
+```shell
+~# dnf install libiso{burn,burn-devel,fs,fs-devel}{,.i686} grub2-{tools,tools-efi,efi-x64,efi-x64-cdboot,efi-x64-modules}
+```
+* libisoburn (`x86_64` and `i686`)
+* libisoburn-devel (`x86_64` and `i686`)
+* libisofs (`x86_64` and `i686`)
+* libisofs-devel (`x86_64` and `i686`)
+---
+
+* grub2-efi-x64
+* grub2-efi-x64-cdboot
+* grub2-efi-x64-modules
+* grub2-tools
+* grub2-tools-efi
+
+
+## Scripts
 
 * 01-toolchain
   - toolchain script to build base lfs (required)
@@ -38,7 +62,7 @@ This repo contain scripts to automate multilib LFS build + livecd. This LFS buil
 * version-check.sh
   - script to check utilities requirements to build lfs
   
-### Step
+## Step
 
 Basically you just need to run all those 3 scripts without other command to get LFS system built including live ISO. You can run:
 ```
@@ -57,11 +81,11 @@ $ ./01-toolchain && sudo ./02-base && sudo ./03-mkiso
 - Then you should have working LFS system now.
 - Reboot to test it out.
 
-### Tested host
+## Tested host
 
 - [Venom Linux](https://venomlinux.org)
 - [Artix Linux](https://artixlinux.org/) - require base-devel and wget
 - [Arya Linux](https://aryalinux.info/) (live environment)
 - [Slackware](http://www.slackware.com/) - Thanks to [joe71](https://github.com/joe71) for testing
 - [Gentoo Linux](https://www.gentoo.org/) - Tested by [owl4ce](https://github.com/owl4ce)
-- (more will come)
+- [Fedora v33/v34](https://getfedora.org) - This fork
