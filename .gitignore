@@ -8,3 +8,4 @@ ports/outdate
 src/
 pkg/
 lfs-rootfs/
+oracle_vbox.asc
